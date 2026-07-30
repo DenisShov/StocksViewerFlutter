@@ -1,0 +1,163 @@
+{
+  "@@locale": "en",
+
+  "appTitle": "StocksViewer",
+  "@appTitle": {
+    "description": "Application display name, shown as the app bar title on the Stocks_List_Screen."
+  },
+
+  "retryButtonLabel": "Retry",
+  "@retryButtonLabel": {
+    "description": "Label of the retry button rendered inside the Error_View and inside the list retry row."
+  },
+
+  "allStocksTitle": "All stocks",
+  "@allStocksTitle": {
+    "description": "Stocks_List_Screen app bar title while search is inactive."
+  },
+
+  "searchStocksHint": "Search stocks",
+  "@searchStocksHint": {
+    "description": "Hint text of the search text field while it is empty."
+  },
+
+  "marketDataHeading": "Market Data",
+  "@marketDataHeading": {
+    "description": "Heading of the market data section on the Stock_Detail_Screen."
+  },
+
+  "marketCapLabel": "Market Cap",
+  "@marketCapLabel": {
+    "description": "Label of the market capitalization card on the Stock_Detail_Screen."
+  },
+
+  "employeesLabel": "Employees",
+  "@employeesLabel": {
+    "description": "Label of the employee count card on the Stock_Detail_Screen."
+  },
+
+  "listedDateLabel": "Listed Date",
+  "@listedDateLabel": {
+    "description": "Label of the listed date row on the Stock_Detail_Screen."
+  },
+
+  "sectorLabel": "Sector",
+  "@sectorLabel": {
+    "description": "Label of the sector card on the Stock_Detail_Screen."
+  },
+
+  "aboutHeading": "About",
+  "@aboutHeading": {
+    "description": "Heading of the about section on the Stock_Detail_Screen."
+  },
+
+  "showLessLabel": "Show Less",
+  "@showLessLabel": {
+    "description": "Toggle label of the about section while it is expanded."
+  },
+
+  "readMoreLabel": "Read More",
+  "@readMoreLabel": {
+    "description": "Toggle label of the about section while it is collapsed."
+  },
+
+  "cikLabel": "CIK:",
+  "@cikLabel": {
+    "description": "Label prefix of the CIK row on the Stock_Detail_Screen."
+  },
+
+  "periodDay": "Day",
+  "@periodDay": {
+    "description": "Period_Selector button label for the day period."
+  },
+
+  "periodWeek": "Week",
+  "@periodWeek": {
+    "description": "Period_Selector button label for the week period."
+  },
+
+  "periodMonth": "Month",
+  "@periodMonth": {
+    "description": "Period_Selector button label for the month period."
+  },
+
+  "periodQuartal": "Quartal",
+  "@periodQuartal": {
+    "description": "Period_Selector button label for the quartal period."
+  },
+
+  "errorGenericHeadline": "Oops! Something went wrong",
+  "@errorGenericHeadline": {
+    "description": "Headline of the Error_View, and the fallback text of the list retry row when its resolved message is blank."
+  },
+
+  "noNetworkConnection": "No network connection",
+  "@noNetworkConnection": {
+    "description": "Failure_Message_Resolver text for a NetworkFailure."
+  },
+
+  "serverProblemHasOccurred": "Server problem has occurred",
+  "@serverProblemHasOccurred": {
+    "description": "Failure_Message_Resolver text for a ServerFailure whose message is blank."
+  },
+
+  "somethingWentWrong": "Something went wrong",
+  "@somethingWentWrong": {
+    "description": "Failure_Message_Resolver text for a GeneralFailure."
+  },
+
+  "favoritesTitle": "Favorites",
+  "@favoritesTitle": {
+    "description": "Favorites screen app bar title, rendered in every favorites state."
+  },
+
+  "favoritesLoadingText": "Loading favorites\u2026",
+  "@favoritesLoadingText": {
+    "description": "Centered text rendered while the favorites stream has not yet emitted."
+  },
+
+  "favoritesEmptyText": "No favorites yet. Tap the star icon on a stock to add it here.",
+  "@favoritesEmptyText": {
+    "description": "Centered text rendered when the favorites store holds no records."
+  },
+
+  "backButtonSemanticLabel": "Return to previous screen",
+  "@backButtonSemanticLabel": {
+    "description": "Semantic label of the Stock_Detail_Screen app bar back control."
+  },
+
+  "searchActionSemanticLabel": "Search",
+  "@searchActionSemanticLabel": {
+    "description": "Semantic label of the search action control while search is inactive."
+  },
+
+  "closeSearchSemanticLabel": "Close Search",
+  "@closeSearchSemanticLabel": {
+    "description": "Semantic label of the close-search control while search is active."
+  },
+
+  "logoSemanticLabel": "Logo",
+  "@logoSemanticLabel": {
+    "description": "Semantic label of the company icon image on the Stock_Detail_Screen, in every loading, error, and loaded state."
+  },
+
+  "noStocksMatchSearchText": "No stocks match your search.",
+  "@noStocksMatchSearchText": {
+    "description": "Empty-state message rendered when the first page of a non-empty search query succeeds with zero items."
+  },
+
+  "noStocksAvailableText": "No stocks are available.",
+  "@noStocksAvailableText": {
+    "description": "Empty-state message rendered when the first page of the full ticker list succeeds with zero items."
+  },
+
+  "addToFavoritesLabel": "Add to favorites",
+  "@addToFavoritesLabel": {
+    "description": "Semantic label of the favorite toggle while the displayed ticker is absent from the Favorites_Local_Store."
+  },
+
+  "removeFromFavoritesLabel": "Remove from favorites",
+  "@removeFromFavoritesLabel": {
+    "description": "Semantic label of the favorite toggle while the displayed ticker is stored in the Favorites_Local_Store."
+  }
+}
