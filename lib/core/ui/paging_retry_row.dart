@@ -2,14 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:stocks_viewer_flutter/core/ui/app_keys.dart';
 import 'package:stocks_viewer_flutter/l10n/generated/app_localizations.dart';
 
-/// The Design_System widget rendering the list-tail retry affordance for a
-/// failed page append. Distinct from the Error_View: no icon, sized to its
-/// content height rather than filling the surface (Requirement 6 AC 10,
-/// AC 19, Requirement 21 AC 7).
 class PagingRetryRow extends StatelessWidget {
-  const PagingRetryRow({required this.message, required this.onRetry, super.key});
+  const PagingRetryRow({
+    required this.message,
+    required this.onRetry,
+    super.key,
+  });
 
-  /// Already resolved by the Failure_Message_Resolver.
   final String message;
   final VoidCallback onRetry;
 
@@ -45,7 +44,9 @@ class PagingRetryRow extends StatelessWidget {
               onPressed: onRetry,
               child: Text(
                 l10n.retryButtonLabel,
-                style: textTheme.labelLarge?.copyWith(color: const Color(0xFFFFFFFF)),
+                style: textTheme.labelLarge?.copyWith(
+                  color: const Color(0xFFFFFFFF),
+                ),
               ),
             ),
           ],

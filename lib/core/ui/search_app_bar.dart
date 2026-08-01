@@ -2,13 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:stocks_viewer_flutter/core/ui/app_keys.dart';
 import 'package:stocks_viewer_flutter/l10n/generated/app_localizations.dart';
 
-/// The Design_System widget rendering the Stocks_List_Screen app bar in its
-/// inactive and active-search states (Requirement 4 AC 18, Requirement 7
-/// AC 1, AC 3, AC 4, AC 5, Requirement 21 AC 2, AC 3).
-///
-/// The [controller] and [focusNode] are owned by the calling screen, not by
-/// this widget, so focus, caret position, and retained search text survive
-/// rebuilds and error states (Requirement 7 AC 2, AC 12, AC 13, AC 15).
 class SearchAppBar extends StatelessWidget implements PreferredSizeWidget {
   const SearchAppBar({
     required this.title,
@@ -29,8 +22,6 @@ class SearchAppBar extends StatelessWidget implements PreferredSizeWidget {
   final VoidCallback onSearchClose;
   final ValueChanged<String> onSearchTextChanged;
 
-  /// Lets this widget be used directly as `Scaffold.appBar`, matching the
-  /// height of the `AppBar` it renders.
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 

@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
-/// The Design_System widget rendering the ticker type label inside a
-/// Stock_List_Card (Requirement 4 AC 11, AC 12, AC 18).
 class TypeChip extends StatelessWidget {
-  const TypeChip({required this.label, super.key});
+  const TypeChip({required this.label, super.key}) : emphasized = false;
+
+  const TypeChip.emphasized({required this.label, super.key})
+    : emphasized = true;
 
   final String label;
+  final bool emphasized;
 
   @override
   Widget build(BuildContext context) {
@@ -13,16 +15,20 @@ class TypeChip extends StatelessWidget {
     final textTheme = Theme.of(context).textTheme;
     return DecoratedBox(
       decoration: BoxDecoration(
-        color: colorScheme.surfaceContainerHigh,
-        borderRadius: BorderRadius.circular(6),
+        color: emphasized
+            ? colorScheme.secondaryContainer
+            : colorScheme.surfaceContainerHigh,
+        borderRadius: BorderRadius.circular(emphasized ? 8 : 6),
       ),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+        padding: EdgeInsets.symmetric(
+          horizontal: emphasized ? 12 : 6,
+          vertical: emphasized ? 4 : 2,
+        ),
         child: Text(
           label,
-          style: textTheme.labelSmall?.copyWith(
-            color: colorScheme.onSurfaceVariant,
-          ),
+          style: (emphasized ? textTheme.labelLarge : textTheme.labelSmall)
+              ?.copyWith(color: colorScheme.onSurfaceVariant),
         ),
       ),
     );

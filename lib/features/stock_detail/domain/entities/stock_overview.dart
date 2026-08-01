@@ -3,14 +3,6 @@ import 'package:equatable/equatable.dart';
 import 'company_address.dart';
 import 'company_branding.dart';
 
-/// The full company overview for a single ticker (Requirement 16 AC 3).
-///
-/// `ticker` is required; the other twenty scalar fields plus the nested
-/// [address] and [branding] objects are nullable. `type` holds the raw,
-/// unformatted type code; formatting for display happens in the
-/// presentation layer via `ValueFormatter.formatType`. `listDate` holds the
-/// raw ISO date string; formatting happens via
-/// `ValueFormatter.formatListedDate`.
 class StockOverview extends Equatable {
   const StockOverview({
     required this.ticker,

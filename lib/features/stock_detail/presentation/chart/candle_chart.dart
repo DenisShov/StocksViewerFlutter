@@ -1,17 +1,3 @@
-// The Candle_Chart itself: an `SfCartesianChart` wrapped to a fixed
-// 400-pixel height, configured per the Syncfusion mapping table in the
-// design document (Requirement 11).
-//
-// `syncfusion_flutter_charts` is a commercial package. Using it requires
-// either a Syncfusion Community License or a paid commercial licence;
-// this needs a licence-eligibility review before shipping (task 1.1).
-//
-// The chart's own tooltip and trackball tooltip are both disabled here;
-// the five-line marker (Requirement 11 AC 11 through AC 13, AC 15, AC 17,
-// AC 18) is a separate custom overlay built on top of this widget by a
-// later task, since no built-in Syncfusion option meets that
-// specification (see the design document's "Two places where
-// Syncfusion's built-in options do not reach the requirement").
 library;
 
 import 'dart:math' as math;
@@ -22,23 +8,15 @@ import 'package:syncfusion_flutter_charts/charts.dart';
 
 import '../../../../core/theme/candle_colors.dart';
 import '../../../../core/ui/app_keys.dart';
+import '../../../../core/utils/value_formatter.dart';
 import '../../domain/entities/candle.dart';
 import 'candle_axis_range.dart';
 import 'candle_vm.dart';
 
-/// The chart's fixed height (Requirement 11 AC 1).
 const double candleChartHeight = 400;
 
-/// How many of the most recent candles are visible in the initial
-/// viewport, used to compute the initial horizontal scroll window
-/// (Requirement 11 AC 3).
 const int candleChartInitialVisibleCount = 30;
 
-/// Renders [candles] as a candlestick chart.
-///
-/// Precondition: [candles] must be non-empty; callers render the
-/// "no chart data" message instead of this widget for an empty list
-/// (Requirement 10 AC 8).
 class CandleChart extends StatelessWidget {
   const CandleChart({super.key, required this.candles});
 
@@ -50,7 +28,8 @@ class CandleChart extends StatelessWidget {
     final data = candles.map(CandleVm.fromCandle).toList(growable: false);
     final range = CandleAxisRange.from(candles);
     final count = data.length;
-    final visibleMinimum = math.max(0, count - candleChartInitialVisibleCount)
+    final visibleMinimum = math
+        .max(0, count - candleChartInitialVisibleCount)
         .toDouble();
     final visibleMaximum = (count - 1).toDouble();
 
@@ -60,8 +39,7 @@ class CandleChart extends StatelessWidget {
         key: AppKeys.candleChart,
         primaryXAxis: CategoryAxis(
           interval: 2,
-          // Raised so the auto-interval heuristic never overrides the
-          // explicit `interval: 2` above (Requirement 11 AC 8).
+
           maximumLabels: count,
           initialVisibleMinimum: visibleMinimum,
           initialVisibleMaximum: visibleMaximum,
@@ -85,6 +63,13 @@ class CandleChart extends StatelessWidget {
           lineType: TrackballLineType.vertical,
           lineDashArray: const <double>[4, 3],
           tooltipSettings: const InteractiveTooltip(enable: false),
+          builder: (context, details) {
+            final index = details.pointIndex;
+            if (index == null || index < 0 || index >= candles.length) {
+              return const SizedBox.shrink();
+            }
+            return _CandleMarker(candle: candles[index]);
+          },
         ),
         zoomPanBehavior: ZoomPanBehavior(
           enablePanning: true,
@@ -112,25 +97,49 @@ class CandleChart extends StatelessWidget {
     );
   }
 
-  /// Computes the widest available width for a single horizontal axis
-  /// label, so `AxisLabelIntersectAction.trim` (Requirement 11 AC 21) has
-  /// a fixed budget to ellipsize against rather than relying on the
-  /// package's own auto-sizing, which does not guarantee one line per
-  /// label at every candle count (Requirement 11 AC 20).
-  ///
-  /// Every candle is a potential label position once `interval` combines
-  /// with panning/zooming, so the budget is sized off the widest
-  /// formatted label rather than the plot width divided by the labelled
-  /// count, keeping the same label legible regardless of scroll offset.
   double _maximumLabelWidth(List<CandleVm> data) {
     if (data.isEmpty) return 0;
-    final longest = data
-        .map((candle) => candle.label.length)
-        .reduce(math.max);
-    // Matches the Android_Original's practice of sizing off character
-    // count for a fixed-width estimate; ~7 logical pixels per character
-    // of a `labelLarge`-scale label keeps `MMM dd yyyy` (11 characters)
-    // fully visible while still enforcing a budget for narrower fonts.
+    final longest = data.map((candle) => candle.label.length).reduce(math.max);
+
     return longest * 7.0;
+  }
+}
+
+class _CandleMarker extends StatelessWidget {
+  const _CandleMarker({required this.candle});
+
+  final Candle candle;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final date = ValueFormatter.formatCandleAxisDate(
+      DateTime.fromMillisecondsSinceEpoch(
+        candle.timestampMs,
+        isUtc: true,
+      ).toLocal(),
+    );
+    return Container(
+      key: AppKeys.candleChartMarker,
+      constraints: const BoxConstraints(minWidth: 40),
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+      decoration: BoxDecoration(
+        color: theme.colorScheme.surfaceContainer,
+        borderRadius: BorderRadius.circular(12),
+        boxShadow: const [BoxShadow(blurRadius: 4, offset: Offset(0, 2))],
+      ),
+      child: Text(
+        'Date: $date\n'
+        'Open: \$${candle.open}\n'
+        'Close: \$${candle.close}\n'
+        'Low: \$${candle.low}\n'
+        'High: \$${candle.high}',
+        maxLines: 5,
+        textAlign: TextAlign.center,
+        style: theme.textTheme.bodySmall?.copyWith(
+          color: theme.colorScheme.onSurface,
+        ),
+      ),
+    );
   }
 }

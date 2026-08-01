@@ -226,6 +226,12 @@ abstract class AppLocalizations {
   /// **'Favorites'**
   String get favoritesTitle;
 
+  /// Label of the stocks destination in the bottom navigation bar.
+  ///
+  /// In en, this message translates to:
+  /// **'Stocks'**
+  String get stocksNavigationLabel;
+
   /// Centered text rendered while the favorites stream has not yet emitted.
   ///
   /// In en, this message translates to:
@@ -273,6 +279,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'No stocks are available.'**
   String get noStocksAvailableText;
+
+  /// Empty-state message rendered when the selected period has no candle records.
+  ///
+  /// In en, this message translates to:
+  /// **'No chart data is available.'**
+  String get noChartDataText;
 
   /// Semantic label of the favorite toggle while the displayed ticker is absent from the Favorites_Local_Store.
   ///

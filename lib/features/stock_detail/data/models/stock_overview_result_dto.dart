@@ -5,15 +5,11 @@ import 'branding_dto.dart';
 
 part 'stock_overview_result_dto.g.dart';
 
-/// Data-transfer object for the `results` object of a company overview
-/// response (Requirement 16 AC 3).
-///
-/// `ticker` is the sole required field; the other twenty flat fields
-/// plus the nested [address] and [branding] objects are nullable.
-/// `fieldRename: FieldRename.snake` produces every snake_case payload
-/// key from its camelCase field name, so no field needs an explicit
-/// `@JsonKey(name: ...)` override.
-@JsonSerializable(checked: true, includeIfNull: true, fieldRename: FieldRename.snake)
+@JsonSerializable(
+  checked: true,
+  includeIfNull: true,
+  fieldRename: FieldRename.snake,
+)
 class StockOverviewResultDto {
   const StockOverviewResultDto({
     required this.ticker,

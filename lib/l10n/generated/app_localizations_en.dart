@@ -75,6 +75,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get favoritesTitle => 'Favorites';
 
   @override
+  String get stocksNavigationLabel => 'Stocks';
+
+  @override
   String get favoritesLoadingText => 'Loading favorites…';
 
   @override
@@ -98,6 +101,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get noStocksAvailableText => 'No stocks are available.';
+
+  @override
+  String get noChartDataText => 'No chart data is available.';
 
   @override
   String get addToFavoritesLabel => 'Add to favorites';

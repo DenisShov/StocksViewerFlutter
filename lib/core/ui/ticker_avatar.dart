@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-/// The Design_System widget rendering the circular ticker badge inside a
-/// Stock_List_Card (Requirement 4 AC 4, AC 5, AC 6, AC 7, AC 18).
 class TickerAvatar extends StatelessWidget {
   const TickerAvatar({required this.ticker, super.key});
 

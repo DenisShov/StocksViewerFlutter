@@ -4,14 +4,6 @@ import 'package:stocks_viewer_flutter/core/ui/app_keys.dart';
 import 'package:stocks_viewer_flutter/features/stock_detail/domain/entities/period.dart';
 import 'package:stocks_viewer_flutter/l10n/generated/app_localizations.dart';
 
-/// The Design_System-adjacent widget rendering the chart timespan segmented
-/// control (Requirement 12 AC 1-9, Requirement 21 AC 7, AC 10).
-///
-/// Presentation-only: the currently selected [period] and the
-/// [onPeriodSelected] callback are owned by the caller (eventually
-/// `StockDetailNotifier`), so this widget holds no notion of which period is
-/// selected in its own state - selection is derived solely from [period],
-/// which keeps exactly one button selected at any time (Requirement 12 AC 9).
 class PeriodSelector extends StatefulWidget {
   const PeriodSelector({
     required this.period,
@@ -19,10 +11,8 @@ class PeriodSelector extends StatefulWidget {
     super.key,
   });
 
-  /// The currently selected Period. Drives which button renders selected.
   final Period period;
 
-  /// Invoked with the tapped button's Period whenever a button is tapped.
   final ValueChanged<Period> onPeriodSelected;
 
   @override
@@ -31,7 +21,6 @@ class PeriodSelector extends StatefulWidget {
 
 class _PeriodSelectorState extends State<PeriodSelector>
     with TickerProviderStateMixin {
-  // Damping ratio 0.5, stiffness 200, mass 1.0 (Requirement 12 AC 8).
   static final SpringDescription _spring = SpringDescription.withDampingRatio(
     mass: 1.0,
     stiffness: 200.0,

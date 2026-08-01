@@ -7,12 +7,6 @@ import '../../domain/repositories/stocks_list_repository.dart';
 import '../datasources/stocks_remote_data_source.dart';
 import '../mappers/stock_mapper.dart';
 
-/// The data-layer implementation of [StocksListRepository].
-///
-/// Every dependency is supplied through the constructor (Requirement 2 AC
-/// 16). Every page is requested from [_dataSource], which always reaches
-/// the network, so no page is ever served from a local read
-/// (Requirement 6 AC 15).
 class StocksListRepositoryImpl implements StocksListRepository {
   const StocksListRepositoryImpl(
     this._dataSource,

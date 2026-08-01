@@ -8,10 +8,6 @@ import '../../domain/repositories/stock_detail_repository.dart';
 import '../datasources/stock_detail_remote_data_source.dart';
 import '../mappers/stock_detail_mapper.dart';
 
-/// The data-layer implementation of [StockDetailRepository].
-///
-/// Every dependency is supplied through the constructor (Requirement 2 AC
-/// 16).
 class StockDetailRepositoryImpl implements StockDetailRepository {
   const StockDetailRepositoryImpl(
     this._dataSource,

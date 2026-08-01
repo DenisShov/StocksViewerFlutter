@@ -4,12 +4,6 @@ import 'app_keys.dart';
 import 'ticker_avatar.dart';
 import 'type_chip.dart';
 
-/// The Design_System widget rendering a single ticker row, shared by the
-/// Stocks_List_Screen and the Favorites_Screen (Requirement 4 AC 1, AC 2,
-/// AC 3, AC 8, AC 9, AC 10, AC 13, AC 18, AC 22; Requirement 21 AC 7, AC 8).
-///
-/// Takes primitive parameters rather than a feature entity so that
-/// `lib/core/ui/` stays free of feature entities.
 class StockListCard extends StatelessWidget {
   const StockListCard({
     required this.ticker,

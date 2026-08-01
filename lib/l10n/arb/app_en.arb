@@ -111,6 +111,11 @@
     "description": "Favorites screen app bar title, rendered in every favorites state."
   },
 
+  "stocksNavigationLabel": "Stocks",
+  "@stocksNavigationLabel": {
+    "description": "Label of the stocks destination in the bottom navigation bar."
+  },
+
   "favoritesLoadingText": "Loading favorites\u2026",
   "@favoritesLoadingText": {
     "description": "Centered text rendered while the favorites stream has not yet emitted."
@@ -149,6 +154,11 @@
   "noStocksAvailableText": "No stocks are available.",
   "@noStocksAvailableText": {
     "description": "Empty-state message rendered when the first page of the full ticker list succeeds with zero items."
+  },
+
+  "noChartDataText": "No chart data is available.",
+  "@noChartDataText": {
+    "description": "Empty-state message rendered when the selected period has no candle records."
   },
 
   "addToFavoritesLabel": "Add to favorites",

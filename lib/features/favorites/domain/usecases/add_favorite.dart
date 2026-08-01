@@ -4,10 +4,6 @@ import '../../../../core/error/failure.dart';
 import '../entities/favorite_stock.dart';
 import '../repositories/favorites_repository.dart';
 
-/// Adds or replaces a favorite stock.
-///
-/// A concrete use case with a single `call` method and no shared base class
-/// (Requirement 2 AC 13).
 class AddFavorite {
   const AddFavorite(this._repository);
 

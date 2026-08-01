@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:stocks_viewer_flutter/core/utils/date_window.dart';
+import 'package:stocks_viewer_flutter/features/stock_detail/domain/services/date_window.dart';
 
 void main() {
   group('DateWindow.twoYearsEarlier', () {

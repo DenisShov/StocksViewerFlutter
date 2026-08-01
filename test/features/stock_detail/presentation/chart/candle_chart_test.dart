@@ -18,27 +18,28 @@ List<Candle> _candles(int count) => List.generate(
 );
 
 void main() {
-  testWidgets('CandleChart renders a 400-pixel-tall SfCartesianChart keyed candleChart', (
-    tester,
-  ) async {
-    await tester.pumpWidget(
-      MaterialApp(
-        theme: const AppTheme().light,
-        home: Scaffold(body: CandleChart(candles: _candles(5))),
-      ),
-    );
-    await tester.pump(const Duration(seconds: 2));
+  testWidgets(
+    'CandleChart renders a 400-pixel-tall SfCartesianChart keyed candleChart',
+    (tester) async {
+      await tester.pumpWidget(
+        MaterialApp(
+          theme: const AppTheme().light,
+          home: Scaffold(body: CandleChart(candles: _candles(5))),
+        ),
+      );
+      await tester.pump(const Duration(seconds: 2));
 
-    final sizedBox = tester.widget<SizedBox>(
-      find.ancestor(
-        of: find.byKey(AppKeys.candleChart),
-        matching: find.byType(SizedBox),
-      ),
-    );
-    expect(sizedBox.height, 400);
-    expect(find.byKey(AppKeys.candleChart), findsOneWidget);
-    expect(find.byType(SfCartesianChart), findsOneWidget);
-  });
+      final sizedBox = tester.widget<SizedBox>(
+        find.ancestor(
+          of: find.byKey(AppKeys.candleChart),
+          matching: find.byType(SizedBox),
+        ),
+      );
+      expect(sizedBox.height, 400);
+      expect(find.byKey(AppKeys.candleChart), findsOneWidget);
+      expect(find.byType(SfCartesianChart), findsOneWidget);
+    },
+  );
 
   testWidgets('CandleChart builds without throwing for a large candle count', (
     tester,

@@ -16,8 +16,7 @@ void main() {
     });
 
     test('returns null when next_url contains no cursor= occurrence', () {
-      const nextUrl =
-          'https://api.polygon.io/v3/reference/tickers?limit=50';
+      const nextUrl = 'https://api.polygon.io/v3/reference/tickers?limit=50';
 
       expect(extractCursor(nextUrl), isNull);
     });

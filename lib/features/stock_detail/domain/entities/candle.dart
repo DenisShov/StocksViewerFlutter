@@ -1,10 +1,5 @@
 import 'package:equatable/equatable.dart';
 
-/// One open/high/low/close/volume record returned by the Polygon.io
-/// aggregates endpoint.
-///
-/// [timestampMs] is milliseconds since the Unix epoch in UTC
-/// (Requirement 16 AC 6).
 class Candle extends Equatable {
   const Candle({
     required this.open,

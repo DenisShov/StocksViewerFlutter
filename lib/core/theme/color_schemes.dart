@@ -1,22 +1,7 @@
-// Light and dark Material 3 color schemes for the App_Theme.
-//
-// Every color literal below is copied character for character from
-// Requirement 3 AC 1 (light) and AC 2 (dark). These are `const` literals
-// only: no `ColorScheme.fromSeed`, no `DynamicColorBuilder`, and no
-// wallpaper-derived palette is used anywhere in this file or elsewhere in
-// the codebase (Requirement 3 AC 5).
-//
-// `surfaceVariant` is deprecated by the Flutter framework in favor of
-// `surfaceContainerHighest`, but Requirement 3 AC 1 and AC 2 specify a
-// `surfaceVariant` value that is distinct from `surfaceContainerHighest` in
-// both schemes, so it must be set explicitly to reproduce the exact
-// requirement value. The resulting `deprecated_member_use` warning is
-// suppressed on that single named argument in each scheme.
 library;
 
 import 'package:flutter/material.dart';
 
-/// The light Material 3 color scheme (Requirement 3 AC 1).
 const ColorScheme lightColorScheme = ColorScheme(
   brightness: Brightness.light,
   primary: Color(0xFF4F5B92),
@@ -37,7 +22,7 @@ const ColorScheme lightColorScheme = ColorScheme(
   onErrorContainer: Color(0xFF93000A),
   surface: Color(0xFFFBF8FF),
   onSurface: Color(0xFF1B1B21),
-  // ignore: deprecated_member_use
+
   surfaceVariant: Color(0xFFE2E1EC),
   onSurfaceVariant: Color(0xFF45464F),
   outline: Color(0xFF767680),
@@ -55,7 +40,6 @@ const ColorScheme lightColorScheme = ColorScheme(
   surfaceContainerHighest: Color(0xFFE3E1E9),
 );
 
-/// The dark Material 3 color scheme (Requirement 3 AC 2).
 const ColorScheme darkColorScheme = ColorScheme(
   brightness: Brightness.dark,
   primary: Color(0xFFB8C3FF),
@@ -76,7 +60,7 @@ const ColorScheme darkColorScheme = ColorScheme(
   onErrorContainer: Color(0xFFFFDAD6),
   surface: Color(0xFF121318),
   onSurface: Color(0xFFE3E1E9),
-  // ignore: deprecated_member_use
+
   surfaceVariant: Color(0xFF45464F),
   onSurfaceVariant: Color(0xFFC6C5D0),
   outline: Color(0xFF90909A),
@@ -94,6 +78,5 @@ const ColorScheme darkColorScheme = ColorScheme(
   surfaceContainerHighest: Color(0xFF34343A),
 );
 
-/// Scaffold background colors (Requirement 3 AC 3).
 const Color lightScaffoldBackground = Color(0xFFFBF8FF);
 const Color darkScaffoldBackground = Color(0xFF121318);
