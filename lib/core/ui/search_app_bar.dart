@@ -57,6 +57,10 @@ class SearchAppBar extends StatelessWidget implements PreferredSizeWidget {
         focusNode: focusNode,
         maxLines: 1,
         maxLength: 100,
+        style: const TextStyle(
+          fontSize: 20,
+          fontWeight: FontWeight.bold,
+        ),
         onChanged: onSearchTextChanged,
         decoration: InputDecoration(
           filled: true,

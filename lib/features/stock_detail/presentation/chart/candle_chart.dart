@@ -24,7 +24,8 @@ class CandleChart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final candleColors = Theme.of(context).extension<CandleColors>()!;
+    final theme = Theme.of(context);
+    final candleColors = theme.extension<CandleColors>()!;
     final data = candles.map(CandleVm.fromCandle).toList(growable: false);
     final range = CandleAxisRange.from(candles);
     final count = data.length;
@@ -38,14 +39,15 @@ class CandleChart extends StatelessWidget {
       child: SfCartesianChart(
         key: AppKeys.candleChart,
         primaryXAxis: CategoryAxis(
-          interval: 2,
-
-          maximumLabels: count,
+          interval: 4,
           initialVisibleMinimum: visibleMinimum,
           initialVisibleMaximum: visibleMaximum,
           labelIntersectAction: AxisLabelIntersectAction.trim,
-          maximumLabelWidth: _maximumLabelWidth(data),
+          maximumLabelWidth: _maximumLabelWidth,
           majorGridLines: const MajorGridLines(width: 0),
+          axisLine: const AxisLine(width: 1),
+          majorTickLines: const MajorTickLines(size: 4, width: 1),
+          labelStyle: TextStyle(color: theme.colorScheme.onSurfaceVariant),
         ),
         primaryYAxis: NumericAxis(
           numberFormat: NumberFormat(r'$#,###', 'en_US'),
@@ -97,12 +99,9 @@ class CandleChart extends StatelessWidget {
     );
   }
 
-  double _maximumLabelWidth(List<CandleVm> data) {
-    if (data.isEmpty) return 0;
-    final longest = data.map((candle) => candle.label.length).reduce(math.max);
-
-    return longest * 7.0;
-  }
+  // Fixed width based on the constant "MMM dd yyyy" date format length,
+  // since all CandleVm.label values share this fixed format/length.
+  static const double _maximumLabelWidth = 'MMM dd yyyy'.length * 7.0;
 }
 
 class _CandleMarker extends StatelessWidget {

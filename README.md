@@ -20,20 +20,6 @@ The project uses a feature-first Clean Architecture inspired by the [Flutter Riv
 
 The application is organized by feature. Each feature contains its own domain, data, presentation, and dependency-composition code.
 
-```mermaid
-flowchart LR
-    UI["Screens and widgets"] --> State["Riverpod notifiers"]
-    State --> UseCase["Domain use cases"]
-    UseCase --> Contract["Repository interfaces"]
-    Wiring["Provider composition"] --> State
-    Wiring --> UseCase
-    Wiring --> Implementation["Repository implementations"]
-    Implementation --> Contract
-    Implementation --> Source["Remote or local data sources"]
-    Source --> API["Polygon/Massive API"]
-    Source --> DB["Drift database"]
-```
-
 The dependency rules are:
 
 - `domain` contains pure business entities, repository contracts, services, and use cases. It does not depend on Flutter, Riverpod, data implementations, or presentation.
@@ -222,6 +208,3 @@ The test suite includes:
 - Riverpod notifier feature tests
 - Chart and shared-widget tests
 
-## Syncfusion license
-
-The candlestick chart uses Syncfusion Flutter Charts. Confirm eligibility for the Syncfusion Community License or obtain an appropriate commercial license before distributing the application.
