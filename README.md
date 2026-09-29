@@ -4,6 +4,56 @@ StocksViewer is a Flutter port of the native Android StocksViewer application. I
 
 The project uses a feature-first Clean Architecture inspired by the [Flutter Riverpod Clean Architecture template](https://ssoad.github.io/flutter_riverpod_clean_architecture/). Riverpod provides dependency injection and presentation state management without introducing framework dependencies into the domain layer.
 
+
+## Other StocksViewer apps:
+Android Native:
+
+https://github.com/DenisShov/StocksViewer
+
+Compose Multiplatform Mobile(CMM) - Android and iOS share the same UI written in Compose:
+
+https://github.com/DenisShov/StocksViewerCMP
+
+Kotlin Multiplatform Mobile(KMM) - Android uses Compose and iOS uses SwiftUI for UI:
+
+https://github.com/DenisShov/StocksViewerKMP
+
+## Screenshots
+
+### Android
+
+<table>
+  <tr>
+    <td align="center"><img src="docs/screenshots/1-start-screen-and.png" width="220" alt="Start screen"></td>
+    <td align="center"><img src="docs/screenshots/2-search-and.png" width="220" alt="Search"></td>
+    <td align="center"><img src="docs/screenshots/3-details-screen-header-and.png" width="220" alt="Details screen header"></td>
+    <td align="center"><img src="docs/screenshots/4-details-screen-footer-and.png" width="220" alt="Details screen footer"></td>
+  </tr>
+  <tr>
+    <td align="center">Start screen</td>
+    <td align="center">Search</td>
+    <td align="center">Details screen header</td>
+    <td align="center">Details screen footer</td>
+  </tr>
+</table>
+
+### iOS
+
+<table>
+  <tr>
+    <td align="center"><img src="docs/screenshots/1-start-screen-ios.png" width="220" alt="Start screen"></td>
+    <td align="center"><img src="docs/screenshots/2-search-ios.png" width="220" alt="Search"></td>
+    <td align="center"><img src="docs/screenshots/3-details-screen-header-ios.png" width="220" alt="Details screen header"></td>
+    <td align="center"><img src="docs/screenshots/4-details-screen-footer-ios.png" width="220" alt="Details screen footer"></td>
+  </tr>
+  <tr>
+    <td align="center">Start screen</td>
+    <td align="center">Search</td>
+    <td align="center">Details screen header</td>
+    <td align="center">Details screen footer</td>
+  </tr>
+</table>
+
 ## Features
 
 - Paginated stock and ETF list
